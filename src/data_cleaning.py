@@ -24,6 +24,15 @@ matches["result_margin"] = matches["result_margin"].fillna(0)
 matches["target_runs"] = matches["target_runs"].fillna(0)
 matches["target_overs"] = matches["target_overs"].fillna(0)
 
+# Standardize venue names
+matches["venue"] = matches["venue"].replace({
+    "M Chinnaswamy Stadium, Bengaluru": "M Chinnaswamy Stadium",
+    "M.Chinnaswamy Stadium": "M Chinnaswamy Stadium",
+    "MA Chidambaram Stadium, Chepauk": "MA Chidambaram Stadium",
+    "Punjab Cricket Association Stadium, Mohali": "Punjab Cricket Association Stadium",
+    "Arun Jaitley Stadium": "Feroz Shah Kotla"
+})
+
 matches["date"] = pd.to_datetime(matches["date"])
 
 print("\nData Types:")
